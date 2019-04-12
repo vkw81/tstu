@@ -1,0 +1,58 @@
+<template>
+  <!-- Initial Page, "data-name" contains page name -->
+  
+  <div data-name="home" class="page"> 
+    
+    <!-- Top Navbar -->
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left"> <a href="#" class="link back"> <i class="icon icon-back"></i> <span class="if-not-md">Назад</span> </a> </div>
+        <div class="title">ТГТУ</div>
+      </div>
+    </div>
+    
+    <!-- Bottom Toolbar -->
+    <div class="toolbar tabbar-labels toolbar-bottom tstu-toolbar"></div>
+    
+    <!-- Scrollable page content -->
+    <div class="page-content">
+      <div class="list media-list tstu-media-list">
+        <ul>
+          
+			
+			<li>
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title-row">
+                  <div class="item-title">Правила приёма</div>
+					<a href="http://mobile.tstu.ru/downloadpdf?url=http://tstu.ru/abitur/priem/pdf/2019/Pravila_priema_TSTU_28.01.19-soo.pdf" class="item-after link external"  target="_system"><i class="f7-icons">cloud_download</i></a>
+                </div>
+              </div>
+            </div>
+          </li>
+			
+			<li>
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title-row">
+                  <div class="item-title">Положение о приёме (переводе)</div>
+					<a href="http://mobile.tstu.ru/downloadpdf?url=http://tstu.ru/abitur/priem/pdf/2019/Polozeine_pli_2019.pdf" class="item-after link external"  target="_system"><i class="f7-icons">cloud_download</i></a>
+                </div>
+              </div>
+            </div>
+          </li>
+			
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  return {
+    on: {
+	  pageAfterin: function () {
+		  setActiveTab(2);
+      },
+    },
+  };
+</script>

@@ -1,0 +1,83 @@
+<template>
+<!-- Initial Page, "data-name" contains page name -->
+    <div data-name="home" class="page"> 
+      
+      <!-- Top Navbar -->
+      <div class="navbar">
+        <div class="navbar-inner">
+			<div class="left">
+<a href="#" class="link back">
+<i class="icon icon-back"></i>
+<span class="if-not-md">Назад</span>
+</a>
+</div>
+          <div class="title">ТГТУ</div>
+        </div>
+      </div>
+      
+      <!-- Bottom Toolbar -->
+      <div class="toolbar tabbar-labels toolbar-bottom tstu-toolbar">
+        
+      </div>
+      
+      <!-- Scrollable page content -->
+      <div class="page-content">
+		{{#if nnews}}
+		<div class="card1 tstu-facebook-card">
+			{{#if nnews.has_img}}
+				<picture>
+					<source srcset="http://mobile.tstu.ru/img/{{nnews.id}}_480.jpg" media="(max-width: 480px)">
+					<source srcset="http://mobile.tstu.ru/img/{{nnews.id}}_640.jpg" media="(max-width: 640px)">
+					<source srcset="http://mobile.tstu.ru/img/{{nnews.id}}_800.jpg" media="(max-width: 800px)">
+					<source srcset="http://mobile.tstu.ru/img/{{nnews.id}}_1080.jpg" media="(max-width: 1080px)">
+					<source srcset="http://mobile.tstu.ru/img/{{nnews.id}}_800.jpg 2x" media="(max-width: 480px)">
+					<source srcset="http://mobile.tstu.ru/img/{{nnews.id}}_1080.jpg 2x" media="(max-width: 800px)">
+					<source srcset="http://mobile.tstu.ru/img/{{nnews.id}}_1080.jpg 3x" media="(max-width: 480px)">
+					<source srcset="http://mobile.tstu.ru/img/{{nnews.id}}_1080.jpg">
+					<img src="http://mobile.tstu.ru/img/{{nnews.id}}_480.jpg">
+				</picture>
+			{{/if}}
+		  <div class="card-header">
+			<a class="tstu-facebook-name">{{nnews.cname}} </a>
+			<div class="tstu-facebook-date">
+				{{nnews.time_start}}
+				{{nnews.date_start}}
+				{{#if nnews.date_end}}-{{/if}}
+				{{nnews.time_end}}
+				{{nnews.date_end}}
+				{{#if nnews.is_anons}}<i class="f7-icons tstu-news-badges">bell</i>{{/if}}
+			  </div>
+		  </div>
+		  <div class="card-content card-content-padding">
+			<p>{{nnews.fftext}}</p>
+		  </div>
+		  {{/if}}
+		</div>
+		{{/if}}
+      </div>
+  </div>
+</template>
+<script> 
+
+  return {
+    data: function () {
+      return {
+        // empty initial user data
+        nnews: null,
+      }
+    },
+    on: {
+      pageInit: function () {
+        var self = this;
+        var app = self.$app;
+        app.request.getJSON('http://mobile.tstu.ru/prilnnews', {id:self.$route.params.id},(data) => {
+		  $$('.tstu-tab-news').addClass('back');
+          // update component state with new state
+          self.$setState({
+            nnews : data['nnews'][0],
+          });
+        });
+      },
+    },
+  };
+</script>
