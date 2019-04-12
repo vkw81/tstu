@@ -119,17 +119,19 @@ app.on('pageInit', function (page) {
 	
 	
 });
-/*document.addEventListener('deviceready', function () {
+document.addEventListener('deviceready', function () {
   // Enable to debug issues.
   // window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
   
   var notificationOpenedCallback = function(jsonData) {
-    console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+	  app.alert(JSON.stringify(jsonData));
+	  
   };
 
   window.plugins.OneSignal
     .startInit("20edb3b7-1d38-4590-a462-c69e6c5f69fb")
     .handleNotificationOpened(notificationOpenedCallback)
-    .endInit();
-}, false);*/
+    .endInit()
+	
+}, false);
 
