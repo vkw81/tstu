@@ -159,10 +159,10 @@
     "is_top_level": true,
     "variables": {}
   },
-  "onesignal-cordova-plugin": {
+  "pushwoosh-cordova-plugin": {
     "source": {
       "type": "registry",
-      "id": "onesignal-cordova-plugin"
+      "id": "pushwoosh-pgb-plugin"
     },
     "is_top_level": true,
     "variables": {}

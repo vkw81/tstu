@@ -200,3 +200,14 @@
 	font-weight: normal;
 	color:#000;
 }
+.tstu-login-button{
+	width: 100%;
+	margin: 5px;
+}
+.tstu-logout-button{
+	width: 50%;
+	margin: 8px auto 0 auto;
+}
+.tstu-page-content > div{
+	margin: 0;
+}

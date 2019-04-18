@@ -97,8 +97,21 @@ var app = new Framework7({
 	  	popup: {
       		componentUrl: './pages/abitur/napr/{{who}}/{{napr}}.html'
     	},
+	},
+	//профиль
+	{
+	  path: '/user/',
+	  componentUrl: './pages/user.html',
 	},	
-		
+	//профиль
+	{
+	  path: '/user/usp',
+	  componentUrl: './pages/user/usp.html',
+	},	
+	{
+	  path: '/user/rasp',
+	  componentUrl: './pages/user/rasp.html',
+	},	
 ],
 });
 
@@ -111,27 +124,26 @@ app.on('pageInit', function (page) {
 			<a href="/" class="tab-link tstu-tab-news"><span class="tabbar-label"><i class="icon f7-icons">list</i>Новости</span> </a>\
 			<a href="/abitur/" class="tab-link tstu-tab-abitur"><i class="icon f7-icons">compass</i> <span class="tabbar-label">Абитуриентам</span> </a>\
 			<a href="#" class="tab-link tstu-tab-notif"><i class="icon f7-icons">bell<span class="badge color-red">5</span></i> <span class="tabbar-label">Оповещения</span></a> \
-			<a href="#" class="tab-link tstu-tab-user"> <i class="icon f7-icons">person</i> <span class="tabbar-label">Профиль</span> </a>\
+			<a href="/user/" class="tab-link tstu-tab-user"> <i class="icon f7-icons">person</i> <span class="tabbar-label">Профиль</span> </a>\
 	</div>');
-
-	
-	
-	
-	
+	initPushwoosh();
 });
-document.addEventListener('deviceready', function () {
-  // Enable to debug issues.
-  // window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
+
+/////
+function initPushwoosh() {
+	var pushwoosh = cordova.require("pushwoosh-cordova-plugin.PushNotification");
+
+  // Should be called before pushwoosh.onDeviceReady
+  document.addEventListener('push-notification', function(event) {
+		var notification = event.notification;
+	      app.dialog.alert('Сообщение');
+		// handle push open here
+	});
   
-  var notificationOpenedCallback = function(jsonData) {
-	  app.alert(JSON.stringify(jsonData));
-	  
-  };
-
-  window.plugins.OneSignal
-    .startInit("20edb3b7-1d38-4590-a462-c69e6c5f69fb")
-    .handleNotificationOpened(notificationOpenedCallback)
-    .endInit()
-	
-}, false);
-
+	// Initialize Pushwoosh. This will trigger all pending push notifications on start.
+	pushwoosh.onDeviceReady({
+    appid: "3E661-4E835",
+		projectid: "tstu-237409",
+		//serviceName: "com.tstu.mobile"
+	});
+}
