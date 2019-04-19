@@ -143,4 +143,10 @@ function initPushwoosh() {
 		projectid: "tstu-237409",
 	});
 }
-initPushwoosh();
+document.addEventListener("deviceready", onDeviceReady, false);
+
+    // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
+    //
+    function onDeviceReady() {
+        initPushwoosh();
+    }
