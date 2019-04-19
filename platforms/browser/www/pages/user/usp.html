@@ -38,12 +38,12 @@
 							sem_predm = data[sem];
 								for(predm in sem_predm){
 									usp_html+='<li><div class="item-content"><div class="item-inner"><div class="item-title">';
-									if(sem_predm[predm]['CHECK_MARK'])		usp_html+='<b>'+sem_predm[predm]['CHECK_MARK']+'</b>';
-									if(sem_predm[predm]['CONTROL_MARK'])	usp_html+='<b>'+sem_predm[predm]['CONTROL_MARK']+'</b>';
-									if(sem_predm[predm]['EXAM_MARK'])		usp_html+='Экзамен <b>'+sem_predm[predm]['EXAM_MARK']+'</b>';
-									if(sem_predm[predm]['KURS_MARK'])		usp_html+='Курсовая <b>'+sem_predm[predm]['KURS_MARK']+'</b>';
-									if(sem_predm[predm]['PRACTIC_MARK'])	usp_html+='Практика <b>'+sem_predm[predm]['PRACTIC_MARK']+'</b>';
-									usp_html+=' - '+sem_predm[predm]['DISCIPLINE'];
+									if(sem_predm[predm]['CHECK_MARK'])		usp_html+='<b>'+sem_predm[predm]['CHECK_MARK']+'</b> - ';
+									if(sem_predm[predm]['CONTROL_MARK'])	usp_html+='<b>'+sem_predm[predm]['CONTROL_MARK']+'</b> - ';
+									if(sem_predm[predm]['EXAM_MARK'])		usp_html+='Экзамен <b>'+sem_predm[predm]['EXAM_MARK']+'</b> - ';
+									if(sem_predm[predm]['KURS_MARK'])		usp_html+='Курсовая <b>'+sem_predm[predm]['KURS_MARK']+'</b> - ';
+									if(sem_predm[predm]['PRACTIC_MARK'])	usp_html+='Практика <b>'+sem_predm[predm]['PRACTIC_MARK']+'</b> - ';
+									usp_html+=sem_predm[predm]['DISCIPLINE'];
 									usp_html+='</div></div></div></li>';	
 								}
 							usp_html+='</ul></div></div></div>';
