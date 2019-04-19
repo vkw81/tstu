@@ -126,24 +126,6 @@ app.on('pageInit', function (page) {
 			<a href="#" class="tab-link tstu-tab-notif"><i class="icon f7-icons">bell<span class="badge color-red">5</span></i> <span class="tabbar-label">Оповещения</span></a> \
 			<a href="/user/" class="tab-link tstu-tab-user"> <i class="icon f7-icons">person</i> <span class="tabbar-label">Профиль</span> </a>\
 	</div>');
-	//initPushwoosh();
 });
 
-/////
-function initPushwoosh() {
-	var pushwoosh = cordova.require("pushwoosh-cordova-plugin.PushNotification");
 
-  // Should be called before pushwoosh.onDeviceReady
-  document.addEventListener('push-notification', function(event) {
-		var notification = event.notification;
-	      app.dialog.alert('Сообщение');
-		// handle push open here
-	});
-  
-	// Initialize Pushwoosh. This will trigger all pending push notifications on start.
-	pushwoosh.onDeviceReady({
-    appid: "3E661-4E835",
-		projectid: "tstu-237409",
-		//serviceName: "com.tstu.mobile"
-	});
-}
