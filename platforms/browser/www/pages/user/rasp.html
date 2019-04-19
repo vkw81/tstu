@@ -24,7 +24,7 @@
   return {
     on: {
 	  pageAfterin: function () {
-		  app.request.post('http://mobile.tstu.ru/uspevaimost', {token:localStorage["token"]}, function (data) {
+		  app.request.post('http://mobile.tstu.ru/rasp', {token:localStorage["token"]}, function (data) {
 					data=JSON.parse(data);
 					if(typeof data['error']!='undefined'){app.dialog.alert('Такой пользователь не найден')}
 					else{

@@ -36,15 +36,14 @@
 						for(sem in data){
 							usp_html='<div class="accordion-item '+(sem==last_sem?'accordion-item-opened':'')+'"><a href="" class="item-link item-content">						<div class="item-inner"><div class="item-title">'+sem+' семестр</div></div></a><div class="accordion-item-content"><div class="list"><ul>';
 							sem_predm = data[sem];
-							console.log(sem_predm);
 								for(predm in sem_predm){
-									usp_html+='<li><div class="item-content"><div class="item-inner"><div class="item-title"><b>';
-									if(sem_predm[predm]['CHECK_MARK'])		usp_html+=sem_predm[predm]['CHECK_MARK'];
-									if(sem_predm[predm]['CONTROL_MARK'])	usp_html+=sem_predm[predm]['CONTROL_MARK'];
-									if(sem_predm[predm]['EXAM_MARK'])		usp_html+='Экзамен '+sem_predm[predm]['EXAM_MARK'];
-									if(sem_predm[predm]['KURS_MARK'])		usp_html+='Курсовая '+sem_predm[predm]['KURS_MARK'];
-									if(sem_predm[predm]['PRACTIC_MARK'])	usp_html+='Практика '+sem_predm[predm]['PRACTIC_MARK'];
-									usp_html+='</b> - '+sem_predm[predm]['DISCIPLINE'];
+									usp_html+='<li><div class="item-content"><div class="item-inner"><div class="item-title">';
+									if(sem_predm[predm]['CHECK_MARK'])		usp_html+='<b>'+sem_predm[predm]['CHECK_MARK']+'</b>';
+									if(sem_predm[predm]['CONTROL_MARK'])	usp_html+='<b>'+sem_predm[predm]['CONTROL_MARK']+'</b>';
+									if(sem_predm[predm]['EXAM_MARK'])		usp_html+='Экзамен <b>'+sem_predm[predm]['EXAM_MARK']+'</b>';
+									if(sem_predm[predm]['KURS_MARK'])		usp_html+='Курсовая <b>'+sem_predm[predm]['KURS_MARK']+'</b>';
+									if(sem_predm[predm]['PRACTIC_MARK'])	usp_html+='Практика <b>'+sem_predm[predm]['PRACTIC_MARK']+'</b>';
+									usp_html+=' - '+sem_predm[predm]['DISCIPLINE'];
 									usp_html+='</div></div></div></li>';	
 								}
 							usp_html+='</ul></div></div></div>';
