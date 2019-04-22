@@ -32,6 +32,7 @@
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
     <plugin name="pushwoosh-cordova-plugin" />
     <platform name="android">
+		<resource-file src="google-services.json" target="app/google-services.json" /> 
     </platform>
     <platform name="ios">
     </platform>
