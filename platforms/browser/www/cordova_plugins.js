@@ -423,7 +423,8 @@ module.exports.metadata =
     "cordova-plugin-dialogs": "1.2.1",
     "cordova-plugin-file": "6.0.1",
     "pushwoosh-cordova-plugin": "7.13.0",
-    "cordova-plugin-file-transfer": "1.5.1"
+    "cordova-plugin-file-transfer": "1.5.1",
+    "cordova-support-google-services": "1.3.1"
 }
 // BOTTOM OF METADATA
 });
