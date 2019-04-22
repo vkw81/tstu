@@ -135,28 +135,21 @@ function initPushwoosh() {
   document.addEventListener('push-notification', function(event) {
 		var notification = event.notification;
 		// handle push open here
-	  	app.dialog.alert('111');
+	  
+	    app.dialog.alert(JSON.stringify(notification));
+	  document.write(111);
 	});
   
 	// Initialize Pushwoosh. This will trigger all pending push notifications on start.
 	pushwoosh.onDeviceReady({
-    appid: "3E661-4E835",
+    	appid: "3E661-4E835",
 		projectid: "tstu-237409",
 	});
-	pushwoosh.registerDevice(
-		function(status) {
-			var pushToken = status.pushToken;
-			// handle successful registration here
-	  },
-	  function(status) {
-		// handle registration error here
-	  }
-	);
 }
 document.addEventListener("deviceready", onDeviceReady, false);
 
-    // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
-    //
-    function onDeviceReady() {
-        initPushwoosh();
-    }
+// PhoneGap is loaded and it is now safe to make calls PhoneGap methods
+//
+function onDeviceReady() {
+	initPushwoosh();
+}

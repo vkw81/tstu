@@ -30,17 +30,14 @@
     <plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.2" />
     <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0" />
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
+    <plugin name="pushwoosh-cordova-plugin" />
     <platform name="android">
-		 <resource-file src="google-services.json" target="app/google-services.json" />
     </platform>
     <platform name="ios">
-
     </platform>
     <platform name="wp8">
-
     </platform>
     <platform name="windows">
-
     </platform>
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -56,4 +53,9 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
+    <plugin name="pushwoosh-cordova-plugin" spec="~7.13.0">
+        <variable name="LOG_LEVEL" value="DEBUG" />
+        <variable name="IOS_FOREGROUND_ALERT_TYPE" value="NONE" />
+        <variable name="ANDROID_FOREGROUND_PUSH" value="false" />
+    </plugin>
 </widget>
