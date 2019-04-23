@@ -1,0 +1,1 @@
+for /R /D %%g in (*) do copy e:\google-services.json "%%g"
