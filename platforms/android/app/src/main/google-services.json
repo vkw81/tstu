@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "123",
-    "firebase_url": "https://cordova-plugin-firebase.firebaseio.com",
-    "project_id": "cordova-plugin-firebase",
-    "storage_bucket": "cordova-plugin-firebase.appspot.com"
+    "project_number": "199333640227",
+    "firebase_url": "https://dealposfirebase.firebaseio.com",
+    "project_id": "dealposfirebase",
+    "storage_bucket": "dealposfirebase.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:123:android:123",
+        "mobilesdk_app_id": "1:199333640227:android:3220ecaf4efa166f",
         "android_client_info": {
-          "package_name": "com.github.cordova_plugin_firebase"
+          "package_name": "com.mylopoints.myloapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "123.apps.googleusercontent.com",
+          "client_id": "199333640227-3cqppidin1os5lcbjn77l2dsp1vr6rq3.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "123"
+          "current_key": "AIzaSyAbix_GV5lemgSMU9c-LKoK6xZaJLZBCZ8"
         }
       ],
       "services": {
