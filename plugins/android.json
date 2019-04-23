@@ -73,6 +73,9 @@
     },
     "cordova-plugin-media-capture": {
       "PACKAGE_NAME": "com.tstu.mobile"
+    },
+    "cordova-plugin-fcm": {
+      "PACKAGE_NAME": "com.tstu.mobile"
     }
   },
   "dependent_plugins": {

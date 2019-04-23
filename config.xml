@@ -58,4 +58,5 @@
         <variable name="ANDROID_FOREGROUND_PUSH" value="true" />
     </plugin>
     <engine name="android" spec="~6.3.0" />
+    <plugin name="cordova-plugin-fcm" spec="2.1.2" />
 </widget>

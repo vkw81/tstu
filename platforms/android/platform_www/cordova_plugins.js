@@ -593,6 +593,14 @@ module.exports = [
     "file": "plugins/cordova-plugin-media-capture/www/android/init.js",
     "pluginId": "cordova-plugin-media-capture",
     "runs": true
+  },
+  {
+    "id": "cordova-plugin-fcm.FCMPlugin",
+    "file": "plugins/cordova-plugin-fcm/www/FCMPlugin.js",
+    "pluginId": "cordova-plugin-fcm",
+    "clobbers": [
+      "FCMPlugin"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -619,7 +627,8 @@ module.exports.metadata =
   "cordova.plugins.diagnostic": "4.0.12",
   "pushwoosh-cordova-plugin": "7.13.0",
   "cordova-plugin-file": "4.3.3",
-  "cordova-plugin-media-capture": "1.4.3"
+  "cordova-plugin-media-capture": "1.4.3",
+  "cordova-plugin-fcm": "2.1.2"
 };
 // BOTTOM OF METADATA
 });

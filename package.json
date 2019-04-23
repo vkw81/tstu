@@ -30,7 +30,8 @@
         "IOS_FOREGROUND_ALERT_TYPE": "NONE",
         "ANDROID_FOREGROUND_PUSH": "false"
       },
-      "cordova-plugin-file": {}
+      "cordova-plugin-file": {},
+      "cordova-plugin-fcm": {}
     }
   },
   "dependencies": {
@@ -44,6 +45,7 @@
     "cordova-plugin-device-motion": "~1.2.0",
     "cordova-plugin-device-orientation": "~1.0.2",
     "cordova-plugin-dialogs": "~1.2.0",
+    "cordova-plugin-fcm": "2.1.2",
     "cordova-plugin-fcm-config": "1.0.0",
     "cordova-plugin-file": "^4.3.3",
     "cordova-plugin-geolocation": "~2.1.0",
