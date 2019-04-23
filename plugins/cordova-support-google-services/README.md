@@ -30,7 +30,7 @@ It looks like you have another dependency on a google play services lib with a g
 #### Build Error: Could not generate a proxy class for class com.google.gms.googleservices.GoogleServicesTask.
 Open `platform/android/build.gradle` and change version of the first `com.android.tools.build:gradle`:
 
-    classpath 'com.android.tools.build:gradle:1.2.3+'
+    classpath 'com.android.tools.build:gradle:3.1.3'
 
 #### Duplicate resources: .../platforms/android/build/generated/res/google-services/armv7/debug/values/values.xml:string/google_api_key, .../platforms/android/res/values/strings.xml:string/google_api_key
 Remove `google_api_key` and `google_app_id` from any existing xml file from `platform/android/res/` folder. Those values now come from an automatically generated `values.xml`.
