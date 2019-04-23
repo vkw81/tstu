@@ -1,0 +1,42 @@
+{
+  "_from": "cordova-plugin-fcm-config",
+  "_id": "cordova-plugin-fcm-config@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha1-pwSw30aI5NJR5KKTXqfiJB4bGsk=",
+  "_location": "/cordova-plugin-fcm-config",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-fcm-config",
+    "name": "cordova-plugin-fcm-config",
+    "escapedName": "cordova-plugin-fcm-config",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-fcm-config/-/cordova-plugin-fcm-config-1.0.0.tgz",
+  "_shasum": "a704b0df4688e4d251e4a2935ea7e2241e1b1ac9",
+  "_spec": "cordova-plugin-fcm-config",
+  "_where": "c:\\Users\\user\\Documents\\mobile\\tstu10",
+  "author": {
+    "name": "Steffen Tröster"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "This plugin copies the required fcm configurations in the project folder",
+  "license": "MIT",
+  "name": "cordova-plugin-fcm-config",
+  "platforms": [
+    "android",
+    "ios"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
+}

@@ -190,5 +190,21 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "cordova-plugin-fcm-config": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-fcm-config@1.0.0"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-firebase": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-firebase"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

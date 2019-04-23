@@ -586,6 +586,14 @@ module.exports = [
         "clobbers": [
             "plugins.pushNotification"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-firebase/www/firebase-browser.js",
+        "id": "cordova-plugin-firebase.FirebasePlugin",
+        "pluginId": "cordova-plugin-firebase",
+        "clobbers": [
+            "FirebasePlugin"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -613,7 +621,8 @@ module.exports.metadata =
     "cordova-plugin-media-capture": "1.2.0",
     "cordova-plugin-media": "2.2.0",
     "cordova-support-google-services": "1.3.1",
-    "pushwoosh-cordova-plugin": "7.13.0"
+    "pushwoosh-cordova-plugin": "7.13.0",
+    "cordova-plugin-firebase": "2.0.5"
 }
 // BOTTOM OF METADATA
 });

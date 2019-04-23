@@ -73,6 +73,9 @@
       "IOS_FOREGROUND_ALERT_TYPE": "NONE",
       "ANDROID_FOREGROUND_PUSH": "false",
       "PACKAGE_NAME": "com.tstu.mobile"
+    },
+    "cordova-plugin-firebase": {
+      "PACKAGE_NAME": "com.tstu.mobile"
     }
   },
   "dependent_plugins": {
