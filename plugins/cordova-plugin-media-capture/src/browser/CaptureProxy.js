@@ -92,7 +92,6 @@ function CameraUI() {
  * @param  {Function} errorCB   Error callback
  */
 CameraUI.prototype.startPreview = function(count, successCB, errorCB) {
-    var that = this;
 
     this.preview.onclick = function (e) {
         // proceed with capture here
@@ -114,6 +113,7 @@ CameraUI.prototype.startPreview = function(count, successCB, errorCB) {
         errorCB(new CaptureError(CaptureError.CAPTURE_NO_MEDIA_FILES));
     };
 
+    var that = this;
     navigator.getUserMedia({video: true}, function (previewStream) {
         // Save video stream to be able to stop it later 
         that._previewStream = previewStream;
@@ -133,31 +133,24 @@ CameraUI.prototype.destroyPreview = function () {
     this.preview.src = null;
     this._previewStream.stop();
     this._previewStream = null;
-    if (this.container) {
-        document.body.removeChild(this.container);
-    }
+    this.container && document.body.removeChild(this.container);
 };
 
 
 module.exports = {
+
     captureAudio:function(successCallback, errorCallback) {
-        if (errorCallback) {
-            errorCallback(new CaptureError(CaptureError.CAPTURE_NOT_SUPPORTED));
-        }
+        errorCallback && errorCallback(new CaptureError(CaptureError.CAPTURE_NOT_SUPPORTED));
     },
 
     captureVideo:function (successCallback, errorCallback) {
-        if (errorCallback) {
-            errorCallback(new CaptureError(CaptureError.CAPTURE_NOT_SUPPORTED));
-        }
+        errorCallback && errorCallback(new CaptureError(CaptureError.CAPTURE_NOT_SUPPORTED));
     },
 
     captureImage:function (successCallback, errorCallback, args) {
 
         var fail = function (code) {
-            if (errorCallback) {
-                errorCallback(new CaptureError(code || CaptureError.CAPTURE_INTERNAL_ERR));
-            }
+            errorCallback && errorCallback(new CaptureError(code || CaptureError.CAPTURE_INTERNAL_ERR));
         };
 
         var options = args[0];
@@ -224,9 +217,7 @@ module.exports = {
         var img = document.createElement('img');
         img.src = args[0];
         img.onload = function () {
-            if (successCallback) {
-                successCallback(new MediaFileData(null, 0, img.height, img.width, 0));
-            }
+            successCallback && successCallback(new MediaFileData(null, 0, img.height, img.width, 0));
         };
     }
 };

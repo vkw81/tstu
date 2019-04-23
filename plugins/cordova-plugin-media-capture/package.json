@@ -1,35 +1,7 @@
 {
-  "_from": "cordova-plugin-media-capture@^1.2.0",
-  "_id": "cordova-plugin-media-capture@1.4.3",
-  "_inBundle": false,
-  "_integrity": "sha1-IOO74zT7uJ9iSwIYjqxTcnQ5IPo=",
-  "_location": "/cordova-plugin-media-capture",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "range",
-    "registry": true,
-    "raw": "cordova-plugin-media-capture@^1.2.0",
-    "name": "cordova-plugin-media-capture",
-    "escapedName": "cordova-plugin-media-capture",
-    "rawSpec": "^1.2.0",
-    "saveSpec": null,
-    "fetchSpec": "^1.2.0"
-  },
-  "_requiredBy": [
-    "#USER",
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/cordova-plugin-media-capture/-/cordova-plugin-media-capture-1.4.3.tgz",
-  "_shasum": "20e3bbe334fbb89f624b02188eac5372743920fa",
-  "_spec": "cordova-plugin-media-capture@^1.2.0",
-  "_where": "c:\\Users\\user\\Documents\\mobile\\tstu10",
-  "author": {
-    "name": "Apache Software Foundation"
-  },
-  "bugs": {
-    "url": "https://github.com/apache/cordova-plugin-media-capture/issues"
-  },
-  "bundleDependencies": false,
+  "name": "cordova-plugin-media-capture",
+  "version": "1.2.0",
+  "description": "Cordova Media Capture Plugin",
   "cordova": {
     "id": "cordova-plugin-media-capture",
     "platforms": [
@@ -44,19 +16,10 @@
       "windows"
     ]
   },
-  "deprecated": false,
-  "description": "Cordova Media Capture Plugin",
-  "devDependencies": {
-    "jshint": "^2.6.0"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apache/cordova-plugin-media-capture"
   },
-  "engines": {
-    "cordovaDependencies": {
-      "2.0.0": {
-        "cordova": ">100"
-      }
-    }
-  },
-  "homepage": "https://github.com/apache/cordova-plugin-media-capture#readme",
   "keywords": [
     "cordova",
     "media",
@@ -72,16 +35,9 @@
     "cordova-windows8",
     "cordova-windows"
   ],
-  "license": "Apache-2.0",
-  "name": "cordova-plugin-media-capture",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/apache/cordova-plugin-media-capture.git"
+  "peerDependencies": {
+    "cordova-plugin-file": "^3.0.0"
   },
-  "scripts": {
-    "jshint": "jshint www && jshint src && jshint tests",
-    "test": "npm run jshint"
-  },
-  "types": "./types/index.d.ts",
-  "version": "1.4.3"
+  "author": "Apache Software Foundation",
+  "license": "Apache 2.0"
 }
