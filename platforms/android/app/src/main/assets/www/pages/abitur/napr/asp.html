@@ -1,0 +1,120 @@
+<template>
+  <!-- Initial Page, "data-name" contains page name -->
+  
+  <div data-name="home" class="page"> 
+    
+    <!-- Top Navbar -->
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left"> <a href="#" class="link back"> <i class="icon icon-back"></i> <span class="if-not-md">Назад</span> </a> </div>
+        <div class="title">ТГТУ</div>
+      </div>
+    </div>
+    
+    <!-- Bottom Toolbar -->
+    <div class="toolbar tabbar-labels toolbar-bottom tstu-toolbar"></div>
+    
+    <!-- Scrollable page content -->
+    <div class="page-content">
+      <table  class="tstu-napr-list">
+        <td>Код</td>
+          <td  >Наименование</td>
+        </tr>
+        <tr>
+          <td  >01.06.01</td>
+          <td >Математика и механика</td>
+        </tr>
+        <tr>
+          <td  >04.06.01</td>
+          <td >Химические науки</td>
+        </tr>
+        <tr>
+          <td  >05.06.01</td>
+          <td >Науки о земле</td>
+        </tr>
+        <tr>
+          <td  >08.06.01</td>
+          <td >Техника и технологии строительства</td>
+        </tr>
+        <tr>
+          <td  >09.06.01</td>
+          <td >Информатика и вычислительная техника</td>
+        </tr>
+        <tr>
+          <td  >10.06.01</td>
+          <td >Информационная безопасность</td>
+        </tr>
+        <tr>
+          <td  >11.06.01</td>
+          <td >Электроника, радиотехника и системы связи</td>
+        </tr>
+        <tr>
+          <td  >12.06.01</td>
+          <td >Фотоника, приборостроение, оптические и биотехнические системы и технологии</td>
+        </tr>
+        <tr>
+          <td  >13.06.01</td>
+          <td >Электро- и теплотехника</td>
+        </tr>
+        <tr>
+          <td  >15.06.01</td>
+          <td >Машиностроение</td>
+        </tr>
+        <tr>
+          <td  >18.06.01</td>
+          <td >Химическая технология</td>
+        </tr>
+        <tr>
+          <td  >19.06.01</td>
+          <td >Промышленная экология и биотехнологии</td>
+        </tr>
+        <tr>
+          <td  >27.06.01</td>
+          <td >Управление в технических системах</td>
+        </tr>
+        <tr>
+          <td  >28.06.01</td>
+          <td >Нанотехнологии и наноматериалы</td>
+        </tr>
+        <tr>
+          <td  >35.06.04</td>
+          <td >Технологии, средства механизации и энергетическое оборудование в сельском, лесном и рыбном хозяйстве</td>
+        </tr>
+        <tr>
+          <td  >38.06.01</td>
+          <td >Экономика</td>
+        </tr>
+        <tr>
+          <td  >40.06.01</td>
+          <td >Юриспруденция</td>
+        </tr>
+        <tr>
+          <td  >41.06.01</td>
+          <td >Политические науки и регионоведение</td>
+        </tr>
+        <tr>
+          <td  >44.06.01</td>
+          <td >Образование и педагогические науки</td>
+        </tr>
+        <tr>
+          <td  >45.06.01</td>
+          <td >Языкознание и литературоведение</td>
+        </tr>
+        <tr>
+          <td  >46.06.01</td>
+          <td >Исторические науки и археология</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</template>
+<script>
+  return {
+    on: {
+	  pageAfterin: function () {
+		  setActiveTab(2)
+      },
+    },
+  };
+</script>
