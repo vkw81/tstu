@@ -28,7 +28,6 @@ buildscript {
             url "https://maven.google.com"
         }
         jcenter()
-	google()
     }
 
     dependencies {
