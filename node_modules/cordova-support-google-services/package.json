@@ -1,27 +1,27 @@
 {
-  "_from": "cordova-support-google-services@1.2.1",
-  "_id": "cordova-support-google-services@1.2.1",
+  "_from": "cordova-support-google-services",
+  "_id": "cordova-support-google-services@1.3.1",
   "_inBundle": false,
-  "_integrity": "sha512-EnFjKAE9oI2uzyUvEfWpLgTM200nuJVvShaA4yyz9wMKBUN+H/BRG1byd1ibZz3sSihNKi3FxjQPxmmEn6/IfA==",
+  "_integrity": "sha512-YbFWYBSkbErZh/moothPZG/p1p79ytXTc0iR4YHypBXg9TSDp7M7wm5eKk0f6wV4Ugv6a7UgBvAEtq2nllI8UA==",
   "_location": "/cordova-support-google-services",
   "_phantomChildren": {},
   "_requested": {
-    "type": "version",
+    "type": "tag",
     "registry": true,
-    "raw": "cordova-support-google-services@1.2.1",
+    "raw": "cordova-support-google-services",
     "name": "cordova-support-google-services",
     "escapedName": "cordova-support-google-services",
-    "rawSpec": "1.2.1",
+    "rawSpec": "",
     "saveSpec": null,
-    "fetchSpec": "1.2.1"
+    "fetchSpec": "latest"
   },
   "_requiredBy": [
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/cordova-support-google-services/-/cordova-support-google-services-1.2.1.tgz",
-  "_shasum": "49e8a14833c59eab0171b34cd70873397af8797b",
-  "_spec": "cordova-support-google-services@1.2.1",
+  "_resolved": "https://registry.npmjs.org/cordova-support-google-services/-/cordova-support-google-services-1.3.1.tgz",
+  "_shasum": "6ab047db0625f572d42345b9a431fdd02fbcb677",
+  "_spec": "cordova-support-google-services",
   "_where": "c:\\Users\\user\\Documents\\mobile\\tstu10",
   "author": {
     "name": "Maksim Chemerisuk",
@@ -58,5 +58,5 @@
     "postversion": "git push && git push --tags",
     "version": "replace -s 'version=\"(.+)(?=\">)' 'version=\"'$npm_package_version plugin.xml && git add plugin.xml"
   },
-  "version": "1.2.1"
+  "version": "1.3.1"
 }

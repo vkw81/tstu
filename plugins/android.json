@@ -55,10 +55,10 @@
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.phonegap.helloworld"
     },
-    "cordova-support-google-services": {
+    "cordova-plugin-file": {
       "PACKAGE_NAME": "com.phonegap.helloworld"
     },
-    "cordova-plugin-file": {
+    "cordova-support-google-services": {
       "PACKAGE_NAME": "com.phonegap.helloworld"
     }
   },
