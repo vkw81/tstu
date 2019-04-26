@@ -52,7 +52,7 @@
 	background-color: var(--f7-color-red);
 }
 .tstu-swiper .tstu-swiper-slide:first-child{
-	background-color: var(--f7-color-blue-shade);
+	background-color: var(--f7-theme-color);
 }
 .tstu-swiper .tstu-swiper-slide:last-child{
 	background-color: var(--f7-color-teal);
@@ -182,7 +182,7 @@
 	margin: 9pt;
 }
 .tstu-napr-list a{
-	padding: 0 0 5pt 0px;
+	padding: 2px 0;
     display: block;
 }
 .tstu-napr-list td{
@@ -192,6 +192,11 @@
 	border-bottom: 1px solid #757575;
 	display: block;
 }
+
+.tstu-napr-list tr td:first-child{
+	padding-top: 3px;
+}
+
 .tstu-napr-popup ul{
 	font-weight: bold;
 	color:var(--f7-theme-color);
@@ -199,6 +204,11 @@
 .tstu-napr-popup li{
 	font-weight: normal;
 	color:#000;
+}
+.tstu-napr-popup h3{
+	color: var(--f7-theme-color);
+    font-size: 20pt;
+    text-align: center;
 }
 .tstu-login-button{
 	width: 100%;
@@ -210,4 +220,25 @@
 }
 .tstu-page-content > div{
 	margin: 0;
+}
+.tstu-subpage-title{
+	background-color: #0656ad;
+}
+.tstu-subpage-title h1{
+	color: #fff;
+    font-size: 31pt;
+    text-align: center;
+    margin: 0;
+    line-height: 40pt;
+    font-weight: normal;
+}
+.tstu-rasp h3{
+	text-align: center;
+    color: var(--f7-theme-color);
+    font-size: 18pt;
+    margin: 5pt;
+}
+.tstu-rasp .list .item-link{
+	color: #fff;
+    background: var(--f7-theme-color);
 }

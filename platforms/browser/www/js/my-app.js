@@ -122,9 +122,9 @@ app.on('pageInit', function (page) {
   $$('.tstu-toolbar').append('\
 	<div class="toolbar-inner" id="tstu-toolbar-inner">\
 			<a href="/" class="tab-link tstu-tab-news"><span class="tabbar-label"><i class="icon f7-icons">list</i>Новости</span> </a>\
-			<a href="/abitur/" class="tab-link tstu-tab-abitur"><i class="icon f7-icons">compass</i> <span class="tabbar-label">Абитуриентам</span> </a>\
+			<a href="/abitur/" class="tab-link tstu-tab-abitur"><i class="icon f7-icons">compass</i> <span class="tabbar-label">Абитуриенту</span> </a>\
 			<a href="#" class="tab-link tstu-tab-notif"><i class="icon f7-icons">bell<span class="badge color-red">5</span></i> <span class="tabbar-label">Оповещения</span></a> \
-			<a href="/user/" class="tab-link tstu-tab-user"> <i class="icon f7-icons">person</i> <span class="tabbar-label">Профиль</span> </a>\
+			<a href="/user/" class="tab-link tstu-tab-user"> <i class="icon f7-icons">person</i> <span class="tabbar-label">Студенту</span> </a>\
 	</div>');
 });
 
