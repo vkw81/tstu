@@ -18,6 +18,7 @@
     <div class="page-content tstu-page-content  tstu-rasp" id="reit">
       
     </div>
+	  
   </div>
 </template>
 <script>
@@ -35,10 +36,13 @@
 						for(spec in data){
 							reit_html+='<div class="accordion-item"><a href="" class="item-link item-content"><div class="item-inner"><div class="item-title">'+spec+'</div></div></a><div class="accordion-item-content"><div class="list"><ul>';
 							reit_abits = data[spec];
+							i=1;
 								for(abit in reit_abits){
-									reit_html+='<li><div class="item-content item-link abitur-more popover-open" data-popover=".my-popover'+reit_abits[abit]['id']+'"><div class="item-inner"><div class="item-title">';
+									reit_html+='<li><div class="item-content item-link abitur-more popover-open" data-popover=".my-popover'+reit_abits[abit]['id']+'"><div class="item-inner"><div class="item-title">'+(i++)+' ';
+									if(reit_abits[abit]['is_me']==1)reit_html+='<b>';
 									reit_html+=reit_abits[abit]['Familiya']+' '+reit_abits[abit]['Imya'].charAt(0)+'. '+reit_abits[abit]['Otchestvo'].charAt(0);
 									reit_html+=' - '+reit_abits[abit]['OriginalKopiya'];
+									if(reit_abits[abit]['is_me']==1)reit_html+='</b>';
 									reit_html+='</div></div></div>';
 										reit_html+='<div class="popover my-popover'+reit_abits[abit]['id']+'"><div class="popover-inner">'+reit_abits[abit]['Familiya']+' '+reit_abits[abit]['Imya']+'  '+reit_abits[abit]['Otchestvo']+'<br>';
 										reit_html+=reit_abits[abit]['OriginalKopiya']+'<br>';
@@ -55,10 +59,13 @@
 								}
 							reit_html+='</ul></div></div></div>';
 						}
-						reit_html+='</div>';
+						reit_html+='</div><br><a href="/" class="tstu-logout-button button">Выход</a>';
 						$$("#reit").html(reit_html);
 						$$(".abitur-more").on('click', function (e) {
 						  atext=$$(this).children(".abiurinfo").html()
+						});
+						$$(".tstu-logout-button").on('click', function (e) {
+						  localStorage.clear();
 						});
 					}
 		  });

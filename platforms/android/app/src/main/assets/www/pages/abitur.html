@@ -22,12 +22,21 @@
 		 <div class="list accordion-list tstu-abitur-accordion">
 			<ul>
 				<li class="accordion-item ">
+					{{#if abitur_login}}
+					<a href="/abitur/reiting2/" class="item-link11 item-content">
+						<div class="item-media"><i class="f7-icons">bars_chart_square</i></div>
+						<div class="item-inner">
+							<div class="item-title">Мой рейтинг поступления</div>
+						</div>
+					</a>
+					{{else}}
 					<a href="/abitur/reiting/" class="item-link11 item-content">
 						<div class="item-media"><i class="f7-icons">bars_chart_square</i></div>
 						<div class="item-inner">
 							<div class="item-title">Мой рейтинг поступления</div>
 						</div>
 					</a>
+					{{/if}}
 					<a href="" class="item-link item-content">
 						<div class="item-media"><i class="f7-icons">briefcase</i></div>
 						<div class="item-inner">
@@ -153,40 +162,12 @@
     </div>
   </div>
 </template>
-<!--<script>
+<script>
   return {
     data: function () {
       return {
-        // empty initial user data
-        tmp: null,
-		hide_slider: null, 
+		abitur_login: typeof localStorage["tel"]!='undefined' 
       }
-    },
-    on: {
-      pageInit: function () {
-		  $$('.tstu-answer-content').on('click',function(){
-			  document.getElementById('answer-tel').focus();
-		  })
-		  $$('.send-answer').on('click',function(){console.log(111)
-			  if(($$('#answer-tel').val()<6)){
-				 app.dialog.alert('Введите телефон');
-				 return; 
-		  	  }
-			  if(($$('#answer').val()<6)){
-				 app.dialog.alert('Введите вопрос');
-				 return; 
-		  	  }
-			  app.request.post('http://mobile.tstu.ru/sendanswer', { tel:$$('#answer-tel').val(), text: $$('#answer').val() }, function () {
-				  app.dialog.alert('Сообщение отправлено');
-				  $$('#answer-tel').val('');
-				  $$('#answer').val('');
-			  });								   
-		  })
-		  setActiveTab(2)
-      },
-	  pageAfterin: function () {
-		  setTimeout(function(){setActiveTab(2)},10)
-      },
-    },
+    }
   };
-</script>-->
+</script>

@@ -19,7 +19,7 @@
 		   <div class="list links-list">
 			  <ul>
 				<li>
-				  <a href="/abitur/reiting2/">Посмотреть свой рейтинг</a>
+				  <a href="/abitur/reiting2/" id="goraiting">Посмотреть свой рейтинг</a>
 				</li>
 				<!--<li>
 				  <a href="/abitur/prikazi/">Посмотреть приказы</a>
@@ -27,7 +27,7 @@
 				</div>
 			   <div class="list">
 					<li class="item-content item-input">
-						  <a href="#" class="tstu-logout-button button">Выход</a>
+						  <a href="/" class="tstu-logout-button button">Выход</a>
 					</li>
 			  </ul>
 			</div>
@@ -89,6 +89,7 @@
 						self.$setState({
 							is_login : localStorage["tel"],
 						});
+						$$('#goraiting').click();
 					}
 				});
 			})
