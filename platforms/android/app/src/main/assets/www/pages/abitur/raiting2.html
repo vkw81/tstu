@@ -1,0 +1,110 @@
+<template>
+  <!-- Initial Page, "data-name" contains page name -->
+  
+  <div data-name="home" class="page"> 
+    
+    <!-- Top Navbar -->
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left"> <a href="#" class="link back"> <i class="icon icon-back"></i> <span class="if-not-md">Назад</span> </a> </div>
+        <div class="title">Успеваемость</div>
+      </div>
+    </div>
+    
+    <!-- Bottom Toolbar -->
+    <div class="toolbar tabbar-labels toolbar-bottom tstu-toolbar"></div>
+    
+    <!-- Scrollable page content --> 
+    <div class="page-content tstu-page-content  tstu-rasp" id="reit">
+      
+    </div>
+  </div>
+</template>
+<script>
+  return {
+    on: {
+	  pageAfterin: function () {
+		  app.request.post('http://mobile.tstu.ru/raiting', {tel:localStorage["tel"]}, function (data) {
+					data=JSON.parse(data);
+			  console.log(data);
+					if(typeof data['error']!='undefined'){app.dialog.alert('Такой пользователь не найден')}
+					else{
+						
+						reit_html='<div class="list accordion-list">';
+
+						for(spec in data){
+							reit_html+='<div class="accordion-item"><a href="" class="item-link item-content"><div class="item-inner"><div class="item-title">'+spec+'</div></div></a><div class="accordion-item-content"><div class="list"><ul>';
+							reit_abits = data[spec];
+								for(abit in reit_abits){
+									reit_html+='<li><div class="item-content item-link abitur-more popover-open" data-popover=".my-popover'+reit_abits[abit]['id']+'"><div class="item-inner"><div class="item-title">';
+									reit_html+=reit_abits[abit]['Familiya']+' '+reit_abits[abit]['Imya'].charAt(0)+'. '+reit_abits[abit]['Otchestvo'].charAt(0);
+									reit_html+=' - '+reit_abits[abit]['OriginalKopiya'];
+									reit_html+='</div></div></div>';
+										reit_html+='<div class="popover my-popover'+reit_abits[abit]['id']+'"><div class="popover-inner">'+reit_abits[abit]['Familiya']+' '+reit_abits[abit]['Imya']+'  '+reit_abits[abit]['Otchestvo']+'<br>';
+										reit_html+=reit_abits[abit]['OriginalKopiya']+'<br>';
+										reit_html+='<b>Согласие на зачисление:</b> '+(reit_abits[abit]['SoglasieNaZachislenie']=='true'?'Да':'Нет')+'<br>';
+									    if(reit_abits[abit]['BallyZaDostizheniya']!=0)
+										reit_html+='<b>Баллы за достижения:</b> '+reit_abits[abit]['BallyZaDostizheniya']+'<br>';
+									    if(reit_abits[abit]['SummaBallov']!=0)
+										reit_html+='<b>Сумма баллов: </b>'+reit_abits[abit]['SummaBallov']+'<br>';
+										if(reit_abits[abit]['SrednijBallAttestata']!=0)
+										reit_html+='<b>Средний балл аттестата:</b> '+reit_abits[abit]['SrednijBallAttestata']+'<br>';
+									    reit_html+='<b>Вступительные испытания:</b><br>'+reit_abits[abit]['VstupitelnoeIspytanie_1']+'<br>'+reit_abits[abit]['VstupitelnoeIspytanie_2']+'<br>'+reit_abits[abit]['VstupitelnoeIspytanie_3']+'<br>';
+										reit_html+='</div></div>';
+									reit_html+='</li>';
+								}
+							reit_html+='</ul></div></div></div>';
+						}
+						reit_html+='</div>';
+						$$("#reit").html(reit_html);
+						$$(".abitur-more").on('click', function (e) {
+						  atext=$$(this).children(".abiurinfo").html()
+						});
+					}
+		  });
+		  
+		  setActiveTab(4)
+      },
+    },
+  };
+</script>
+
+<div class="list"><ul>
+	<li>
+		<div class="item-content">
+			<div class="item-inner">
+				<div class="item-title">Item 1</div>
+			</div>
+		</div>
+	</li>
+<li>
+<div class="item-content">
+<div class="item-media">
+<i class="icon icon-f7"></i>
+</div>
+<div class="item-inner">
+<div class="item-title">Item 2</div>
+</div>
+</div>
+</li>
+<li>
+<div class="item-content">
+<div class="item-media">
+<i class="icon icon-f7"></i>
+</div>
+<div class="item-inner">
+<div class="item-title">Item 3</div>
+</div>
+</div>
+</li>
+<li>
+<div class="item-content">
+<div class="item-media">
+<i class="icon icon-f7"></i>
+</div>
+<div class="item-inner">
+<div class="item-title">Item 4</div>
+</div>
+</div>
+</li>
+</ul></div>

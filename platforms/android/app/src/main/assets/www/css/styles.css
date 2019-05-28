@@ -238,7 +238,13 @@
     font-size: 18pt;
     margin: 5pt;
 }
-.tstu-rasp .list .item-link{
+.tstu-rasp .list a.item-link{
 	color: #fff;
     background: var(--f7-theme-color);
+}
+.abiurinfo{
+	display: none;
+}
+.popover-inner{
+	padding: 10px;
 }

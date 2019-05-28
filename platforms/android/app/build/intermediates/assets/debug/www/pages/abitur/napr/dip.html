@@ -1,0 +1,58 @@
+<template>
+  <!-- Initial Page, "data-name" contains page name -->
+  
+  <div data-name="home" class="page"> 
+    
+    <!-- Top Navbar -->
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left"> <a href="#" class="link back"> <i class="icon icon-back"></i> <span class="if-not-md">Назад</span> </a> </div>
+        <div class="title">Абитуриенту</div>
+      </div>
+    </div>
+    
+    <!-- Bottom Toolbar -->
+    <div class="toolbar tabbar-labels toolbar-bottom tstu-toolbar"></div>
+    
+    <!-- Scrollable page content -->
+    <div class="page-content">
+      <table class="tstu-napr-list">
+        <tbody>
+          <tr>
+            <td width="70px">Код</td>
+            <td>Наименование</td>
+          </tr>
+          <tr class="win[37]">
+            <td>08.05.02</td>
+            <td><a href="/abitur-n/dip/08.05.02/Строительство, эксплуатация, восстановление и техническое прикрытие автомобильных дорог, мостов и тоннелей/">Строительство, эксплуатация, восстановление и техническое прикрытие автомобильных дорог, мостов и тоннелей</a></td>
+          </tr>
+          <tr class="win[38]">
+            <td>10.05.03</td>
+            <td><a href="/abitur-n/dip/10.05.03/Информационная безопасность автоматизированных систем/">Информационная безопасность автоматизированных систем</a></td>
+          </tr>
+          <tr class="win[39]">
+            <td>11.05.02</td>
+            <td><a href="/abitur-n/dip/11.05.02/Специальные радиотехнические системы/">Специальные радиотехнические системы</a></td>
+          </tr>
+          <tr class="win[40]">
+            <td>38.05.01</td>
+            <td><a href="/abitur-n/dip/38.05.01/Экономическая безопасность/">Экономическая безопасность</a></td>
+          </tr>
+          <tr class="win[41]">
+            <td>40.05.01</td>
+            <td><a href="/abitur-n/dip/40.05.01/Правовое  обеспечение национальной безопасности/">Правовое  обеспечение национальной безопасности</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</template>
+<script>
+  return {
+    on: {
+	  pageAfterin: function () {
+		  setActiveTab(2)
+      },
+    },
+  };
+</script>

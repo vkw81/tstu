@@ -1,0 +1,107 @@
+<template>
+<!-- Initial Page, "data-name" contains page name -->
+    <div data-name="home" class="page"> 
+      
+      <!-- Top Navbar -->
+      <div class="navbar">
+        <div class="navbar-inner">
+		  <div class="left"> <a href="#" class="link back"> <i class="icon icon-back"></i> <span class="if-not-md">Назад</span> </a> </div>
+          <div class="title">Рейтинг абитуриента</div>
+        </div>
+      </div>
+      
+      <!-- Bottom Toolbar -->
+      <div class="toolbar tabbar-labels toolbar-bottom tstu-toolbar"></div>
+      
+      <!-- Scrollable page content -->
+      <div class="page-content tstu-page-content">
+		  {{#if is_login}}
+		   <div class="list links-list">
+			  <ul>
+				<li>
+				  <a href="/abitur/reiting2/">Посмотреть свой рейтинг</a>
+				</li>
+				<!--<li>
+				  <a href="/abitur/prikazi/">Посмотреть приказы</a>
+				</li>-->
+				</div>
+			   <div class="list">
+					<li class="item-content item-input">
+						  <a href="#" class="tstu-logout-button button">Выход</a>
+					</li>
+			  </ul>
+			</div>
+		  {{else}}
+			<div class="card">
+			  <div class="card-header">Авторизация</div>
+			  <div class="card-content">
+				  <div class="list">
+					  <ul> 
+						  <li class="item-content item-input">
+						  <div class="item-inner">
+							<div class="item-title item-floating-label">Номер сотового</div>
+							<div class="item-input-wrap">
+							  <input type="text" autofocus  id="tel">
+							  <span class="input-clear-button"></span>
+							</div>
+						  </div>
+						</li>
+						  <li>
+							<label class="item-checkbox item-content">
+							<input type="checkbox" id="sms" checked value="SMS">
+							<i class="icon icon-checkbox"></i>
+							<div class="item-inner">
+							<div class="item-title">Получать уведомления по SMS</div>
+							</div>
+							</label>
+						  </li>
+
+						  <li class="item-content item-input">
+						  <a href="#" class="tstu-login-button button button-fill">Вход</a>
+						</li>
+					  </ul>
+					</div>
+			  </div>
+			  <div class="card-footer">Укажите номер сотового, указанного в приёмной комиссии.</div>
+			</div>
+		  {{/if}}
+    </div>
+  </div>
+</template>
+<script>
+  return {
+    data: function () {
+      return {
+        // empty initial user data
+        is_login: typeof localStorage["tel"]!='undefined',
+      }
+    },
+    on: {
+      pageInit: function () {//localStorage.clear()
+		    self=this;
+			$$('.tstu-login-button').on('click',function(){
+				sms = document.getElementById('sms').checked?1:0;
+				app.request.post('http://mobile.tstu.ru/alogin', { tel:$$('#tel').val(), sms: sms }, function (data) {
+					data=JSON.parse(data);
+					if(typeof data['error']!='undefined'){app.dialog.alert('Абитуриент с таким телефоном не зарегистрирован')}
+					else{
+						localStorage["tel"]=data['tel'];
+						self.$setState({
+							is_login : localStorage["tel"],
+						});
+					}
+				});
+			})
+		  	$$('.tstu-logout-button').on('click',function(){
+				localStorage.clear();
+				self.$setState({
+					is_login : false,
+				});
+			})
+      },
+	  pageAfterin: function () {
+		  setTimeout(function(){setActiveTab(2)},10)
+      },
+    },
+  };
+</script>

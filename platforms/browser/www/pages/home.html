@@ -13,8 +13,11 @@
       <div class="toolbar tabbar-labels toolbar-bottom tstu-toolbar"></div>
       
       <!-- Scrollable page content -->
-      <div class="page-content">
-		  
+      <div class="page-content ptr-content infinite-scroll-content">
+		  <div class="ptr-preloader">
+			  <div class="preloader"></div>
+			  <div class="ptr-arrow"></div>
+		  </div>
 		  <!-- SLIDER -->
 		  <div data-space-between="50" class="swiper-container tstu-swiper" {{#if hide_slider}}style="display:none"{{/if}}>
 			  <div class="swiper-pagination swiper-pagination-bullets">
@@ -39,7 +42,7 @@
 			<button class="button button-outline tstu-event-button tstu-event-news">Новости</button>
 			<button class="button button-outline tstu-event-button tstu-event-anons">Анонсы</button>
 	      </p>
-		  
+		<div id="newswrap">
 		{{#each news}}
 		<a name="#n{{this.id}}"></a>
 		<div class="card tstu-facebook-card {{#if this.is_anons}}tstu-is_anons{{/if}} {{#if this.is_news}}tstu-is_news{{/if}}">
@@ -75,7 +78,9 @@
 			  </div>
 		  {{/if}}
 		</div>
-		{{/each}}  
+		{{/each}} 
+		</div>	
+		<div class="preloader infinite-scroll-preloader"></div>
     </div>
   </div>
 </template>
@@ -92,8 +97,9 @@
       pageInit: function () {
         var self = this;
         var app = self.$app;
+		var allowInfinite = true;
         // request user data on page init
-        app.request.getJSON('http://mobile.tstu.ru/prilnews', (data) => {
+        app.request.getJSON('http://mobile.tstu.ru/prilnews/0', (data) => {
           // update component state with new state
           self.$setState({
             news: data['news'],
@@ -102,6 +108,30 @@
           });
 		  app.swiper.create('.swiper-container',{pagination: '.swiper-pagination'});	
         });
+		$$('.ptr-content').on('ptr:refresh', function (e) {
+			app.request.getJSON('http://mobile.tstu.ru/prilnews/0', (data) => {
+			  // update component state with new state
+			  self.$setState({
+				news: data['news'],
+				slider: data['slider'], 
+				hide_slider: data['hide_slider'],
+			  });
+				app.ptr.done(); 
+			});
+		})
+		$$('.infinite-scroll-content').on('infinite', function () {
+			if (!allowInfinite) return;
+			allowInfinite = false;
+			newsTemplate = document.getElementById('newsTemplate').innerHTML;
+			var compiledTemplate = Template7.compile(newsTemplate);
+			page=document.getElementsByClassName('tstu-facebook-card').length/5;
+			app.request.getJSON('http://mobile.tstu.ru/prilnews/'+page, (data) => {
+				if(data['news'].length==0)$$(".infinite-scroll-preloader").hide();
+				html = compiledTemplate(data);
+				$$('#newswrap').append(html);
+				allowInfinite = true;
+			});
+		})
 		$$('.tstu-event-all').on('click', function (e) {
  			$$('.tstu-facebook-card').show();
 			$$('.tstu-event-button').removeClass('button-active');

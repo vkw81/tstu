@@ -32,7 +32,7 @@
     <!-- Color theme for statusbar -->
     <meta name="theme-color" content="#2196f3">
     <!-- Your app title -->
-    <title>My App</title>
+    <title>ТГТУ</title>
     <!-- Path to Framework7 Library Bundle CSS -->
     <link rel="stylesheet" href="css/framework7.bundle.min.css">
 	<link rel="stylesheet" href="css/framework7-icons.css">	
@@ -125,6 +125,44 @@
     </div>
   </div>
 	</script>
+	  <script id="newsTemplate"  type="text/template7">  
+		{{#each news}}
+		<a name="#n{{this.id}}"></a>
+		<div class="card tstu-facebook-card {{#if this.is_anons}}tstu-is_anons{{/if}} {{#if this.is_news}}tstu-is_news{{/if}}">
+		  <div class="card-header">
+			<a href="/nnews/{{this.id}}/" class="tstu-facebook-name">{{this.cname}} </a>
+			<div class="tstu-facebook-date">
+				
+				{{this.time_start}}
+				{{this.date_start}}
+				{{#if this.date_end}}-{{/if}}
+				{{this.time_end}}
+				{{this.date_end}}
+				{{#if this.is_anons}}<i class="f7-icons tstu-news-badges">bell</i>{{/if}}
+			  </div>
+		  </div>
+		  {{#if this.has_img}}
+			<a href="/nnews/{{this.id}}/" class="card-content">
+				<picture>
+					<source srcset="http://mobile.tstu.ru/img/{{this.id}}_480.jpg" media="(max-width: 480px)">
+					<source srcset="http://mobile.tstu.ru/img/{{this.id}}_640.jpg" media="(max-width: 640px)">
+					<source srcset="http://mobile.tstu.ru/img/{{this.id}}_800.jpg" media="(max-width: 800px)">
+					<source srcset="http://mobile.tstu.ru/img/{{this.id}}_1080.jpg" media="(max-width: 1080px)">
+					<source srcset="http://mobile.tstu.ru/img/{{this.id}}_800.jpg 2x" media="(max-width: 480px)">
+					<source srcset="http://mobile.tstu.ru/img/{{this.id}}_1080.jpg 2x" media="(max-width: 800px)">
+					<source srcset="http://mobile.tstu.ru/img/{{this.id}}_1080.jpg 3x" media="(max-width: 480px)">
+					<source srcset="http://mobile.tstu.ru/img/{{this.id}}_1080.jpg">
+					<img src="http://mobile.tstu.ru/img/{{this.id}}_480.jpg">
+				</picture>
+			</a>
+		  {{else}}
+			  <div class="card-content card-content-padding">
+				<p>{{this.ftext}}</p>
+			  </div>
+		  {{/if}}
+		</div>
+		{{/each}} 
+</script>
 	  <script type="text/javascript" src="cordova.js"></script> 
      <!--Path to Framework7 Library Bundle JS-->
     <script type="text/javascript" src="js/framework7.bundle.min.js"></script>

@@ -81,6 +81,14 @@ var app = new Framework7({
 	  componentUrl: './pages/abitur/doc/bsm.html',
 	},
 	{
+	  path: '/abitur/reiting/',
+	  componentUrl: './pages/abitur/reiting.html',
+	},
+	{
+	  path: '/abitur/reiting2/',
+	  componentUrl: './pages/abitur/raiting2.html',
+	},	
+	{
 	  path: '/abitur/so/',
 	  componentUrl: './pages/abitur/doc/so.html',
 	},

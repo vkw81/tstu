@@ -1,0 +1,126 @@
+<template>
+<!-- Initial Page, "data-name" contains page name -->
+    <div data-name="home" class="page"> 
+      
+      <!-- Top Navbar -->
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="title">ТГТУ</div>
+        </div>
+      </div>
+      
+      <!-- Bottom Toolbar -->
+      <div class="toolbar tabbar-labels toolbar-bottom tstu-toolbar"></div>
+      
+      <!-- Scrollable page content -->
+      <div class="page-content">
+		  
+		  <!-- SLIDER -->
+		  <div data-space-between="50" class="swiper-container tstu-swiper" {{#if hide_slider}}style="display:none"{{/if}}>
+			  <div class="swiper-pagination swiper-pagination-bullets">
+			  {{#each slider}} 
+				  <span class="swiper-pagination-bullet"></span>
+			  {{/each}}  
+			  </div>
+			  <div class="swiper-wrapper">
+				{{#each slider}}
+				<div class="swiper-slide tstu-swiper-slide">
+					<div class="tstu-swiper-date">{{this.date_start}} в {{#if this.time_start}} {{this.time_start}} {{/if}}</div>
+					<div class="tstu-swiper-title">{{this.stitle}}</div>
+					<div class="tstu-swiper-addr">{{this.aname}}</div>
+					<div class="tstu-swiper-orgn">{{this.tname}}</div>
+				</div>
+				{{/each}}
+			  </div>
+		</div>
+		
+		  <p class="tstu-event-toggle segmented">
+			<button class="button button-outline tstu-event-button tstu-event-all button-active">Все</button>
+			<button class="button button-outline tstu-event-button tstu-event-news">Новости</button>
+			<button class="button button-outline tstu-event-button tstu-event-anons">Анонсы</button>
+	      </p>
+		  
+		{{#each news}}
+		<a name="#n{{this.id}}"></a>
+		<div class="card tstu-facebook-card {{#if this.is_anons}}tstu-is_anons{{/if}} {{#if this.is_news}}tstu-is_news{{/if}}">
+		  <div class="card-header">
+			<a href="/nnews/{{this.id}}/" class="tstu-facebook-name">{{this.cname}} </a>
+			<div class="tstu-facebook-date">
+				
+				{{this.time_start}}
+				{{this.date_start}}
+				{{#if this.date_end}}-{{/if}}
+				{{this.time_end}}
+				{{this.date_end}}
+				{{#if this.is_anons}}<i class="f7-icons tstu-news-badges">bell</i>{{/if}}
+			  </div>
+		  </div>
+		  {{#if this.has_img}}
+			<a href="/nnews/{{this.id}}/" class="card-content">
+				<picture>
+					<source srcset="http://mobile.tstu.ru/img/{{this.id}}_480.jpg" media="(max-width: 480px)">
+					<source srcset="http://mobile.tstu.ru/img/{{this.id}}_640.jpg" media="(max-width: 640px)">
+					<source srcset="http://mobile.tstu.ru/img/{{this.id}}_800.jpg" media="(max-width: 800px)">
+					<source srcset="http://mobile.tstu.ru/img/{{this.id}}_1080.jpg" media="(max-width: 1080px)">
+					<source srcset="http://mobile.tstu.ru/img/{{this.id}}_800.jpg 2x" media="(max-width: 480px)">
+					<source srcset="http://mobile.tstu.ru/img/{{this.id}}_1080.jpg 2x" media="(max-width: 800px)">
+					<source srcset="http://mobile.tstu.ru/img/{{this.id}}_1080.jpg 3x" media="(max-width: 480px)">
+					<source srcset="http://mobile.tstu.ru/img/{{this.id}}_1080.jpg">
+					<img src="http://mobile.tstu.ru/img/{{this.id}}_480.jpg">
+				</picture>
+			</a>
+		  {{else}}
+			  <div class="card-content card-content-padding">
+				<p>{{this.ftext}}</p>
+			  </div>
+		  {{/if}}
+		</div>
+		{{/each}}  
+    </div>
+  </div>
+</template>
+<script>
+  return {
+    data: function () {
+      return {
+        // empty initial user data
+        tmp: null,
+		hide_slider: null, 
+      }
+    },
+    on: {
+      pageInit: function () {
+        var self = this;
+        var app = self.$app;
+        // request user data on page init
+        app.request.getJSON('http://mobile.tstu.ru/prilnews', (data) => {
+          // update component state with new state
+          self.$setState({
+            news: data['news'],
+			slider: data['slider'], 
+			hide_slider: data['hide_slider'],
+          });
+		  app.swiper.create('.swiper-container',{pagination: '.swiper-pagination'});	
+        });
+		$$('.tstu-event-all').on('click', function (e) {
+ 			$$('.tstu-facebook-card').show();
+			$$('.tstu-event-button').removeClass('button-active');
+			$$(this).addClass('button-active');
+		});  
+		$$('.tstu-event-news').on('click', function (e) {
+ 			$$('.tstu-is_anons').hide();
+			$$('.tstu-is_news').show();
+			$$('.tstu-event-button').removeClass('button-active');
+			$$(this).addClass('button-active');
+		});   
+		$$('.tstu-event-anons').on('click', function (e) {
+ 			$$('.tstu-is_anons').show();
+			$$('.tstu-is_news').hide();
+			$$('.tstu-event-button').removeClass('button-active');
+			$$(this).addClass('button-active');
+		});    
+      },
+	  pageAfterin: setActiveTab
+    },
+  };
+</script>
