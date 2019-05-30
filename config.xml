@@ -96,5 +96,5 @@
     </platform>
     <!--<plugin name="cordova-plugin-file-transfer" spec="~1.5.1" />
     <plugin name="cordova-plugin-file" spec="~4.3.3" />-->
-    <engine name="android" spec="~4.0.0" />
+    <engine name="android" spec="~8.0.0" />
 </widget>
