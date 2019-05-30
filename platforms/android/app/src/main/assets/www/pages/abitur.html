@@ -168,6 +168,10 @@
       return {
 		abitur_login: typeof localStorage["tel"]!='undefined' 
       }
-    }
+    },
+	  on: {
+	  pageAfterin: function () {
+		  setTimeout(function(){setActiveTab(2)},10)
+	  }}
   };
 </script>

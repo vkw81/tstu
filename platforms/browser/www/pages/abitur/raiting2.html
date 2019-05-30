@@ -7,7 +7,7 @@
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left"> <a href="#" class="link back"> <i class="icon icon-back"></i> <span class="if-not-md">Назад</span> </a> </div>
-        <div class="title">Успеваемость</div>
+        <div class="title">Рейтинг поступления</div>
       </div>
     </div>
     
@@ -27,7 +27,6 @@
 	  pageAfterin: function () {
 		  app.request.post('http://mobile.tstu.ru/raiting', {tel:localStorage["tel"]}, function (data) {
 					data=JSON.parse(data);
-			  console.log(data);
 					if(typeof data['error']!='undefined'){app.dialog.alert('Такой пользователь не найден')}
 					else{
 						
@@ -70,7 +69,7 @@
 					}
 		  });
 		  
-		  setActiveTab(4)
+		  setActiveTab(2)
       },
     },
   };
