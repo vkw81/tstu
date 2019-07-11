@@ -35,12 +35,19 @@
 						for(spec in data){
 							reit_html+='<div class="accordion-item"><a href="" class="item-link item-content"><div class="item-inner"><div class="item-title">'+spec+'</div></div></a><div class="accordion-item-content"><div class="list"><ul>';
 							reit_abits = data[spec];
-							i=1;
+							i=0;
 								for(abit in reit_abits){
-									reit_html+='<li><div class="item-content item-link abitur-more popover-open" data-popover=".my-popover'+reit_abits[abit]['id']+'"><div class="item-inner"><div class="item-title">'+(i++)+' ';
+									reit_html+='<li><div class="item-content item-link abitur-more popover-open" data-popover=".my-popover'+reit_abits[abit]['id']+'"><div class="item-inner"><div class="item-title">'+(i>0?i:'')+' ';
+									
 									if(reit_abits[abit]['is_me']==1)reit_html+='<b>';
+									if(i>0){
 									reit_html+=reit_abits[abit]['Familiya']+' '+reit_abits[abit]['Imya'].charAt(0)+'. '+reit_abits[abit]['Otchestvo'].charAt(0);
 									reit_html+=' - '+reit_abits[abit]['OriginalKopiya'];
+									}
+									else {
+										reit_html+= reit_abits[abit]['Familiya']+' '+reit_abits[abit]['OriginalKopiya'];
+									}
+									i++;
 									if(reit_abits[abit]['is_me']==1)reit_html+='</b>';
 									reit_html+='</div></div></div>';
 										reit_html+='<div class="popover my-popover'+reit_abits[abit]['id']+'"><div class="popover-inner">'+reit_abits[abit]['Familiya']+' '+reit_abits[abit]['Imya']+'  '+reit_abits[abit]['Otchestvo']+'<br>';
