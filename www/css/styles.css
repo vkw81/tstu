@@ -13,7 +13,7 @@
 .statusbar-overlay {
     background: #000000;
 }
-/*SLIDER*/
+/*SLIDER*/tstu-login-button
 .tstu-swiper .swiper-slide {
   font-size: 25px;
   font-weight: 300;
@@ -210,7 +210,7 @@
     font-size: 20pt;
     text-align: center;
 }
-.tstu-login-button{
+.tstu-login-button, .tstu-sk-button{
 	width: 100%;
 	margin: 5px;
 }

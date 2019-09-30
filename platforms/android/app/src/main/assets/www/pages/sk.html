@@ -1,0 +1,138 @@
+<template>
+<!-- Initial Page, "data-name" contains page name -->
+    <div data-name="sk" class="page"> 
+      
+      <!-- Top Navbar -->
+      <div class="navbar">
+        <div class="navbar-inner">
+		  <div class="left"> <a href="#" class="link back"> <i class="icon icon-back"></i> <span class="if-not-md">Назад</span> </a> </div>
+          <div class="title">Регистрация на квест</div>
+        </div>
+      </div>
+      
+      <!-- Bottom Toolbar -->
+      <div class="toolbar tabbar-labels toolbar-bottom tstu-toolbar"></div>
+      
+      <!-- Scrollable page content -->
+      <div class="page-content tstu-page-content">
+			<div class="card">
+			  <div class="card-header">Регистрация на квест</div>
+			  <div class="card-content">
+				  <div class="list">
+					  <ul> 
+						  <li class="item-content item-input">
+						  <div class="item-inner">
+							<div class="item-title item-floating-label">Фамилия</div>
+							<div class="item-input-wrap">
+							  <input type="text" autofocus required  id="family">
+							  <span class="input-clear-button"></span>
+							</div>
+						  </div>
+						</li>
+						  <li class="item-content item-input">
+						  <div class="item-inner">
+							<div class="item-title item-floating-label">Имя</div>
+							<div class="item-input-wrap">
+							  <input type="text" required id="sname">
+							  <span class="input-clear-button"></span>
+							</div>
+						  </div>
+						</li>
+						  <li class="item-content item-input">
+						  <div class="item-inner">
+							<div class="item-title item-floating-label">Отчество</div>
+							<div class="item-input-wrap">
+							  <input type="text" required id="otch">
+							  <span class="input-clear-button"></span>
+							</div>
+						  </div>
+						</li>
+						  <li class="item-content item-input">
+						  <div class="item-inner">
+							<div class="item-title item-floating-label">Школа, лицей</div>
+							<div class="item-input-wrap">
+							  <input type="text" required id="skola">
+							  <span class="input-clear-button"></span>
+							</div>
+						  </div>
+						</li>
+						  <li class="item-content item-input">
+						  <div class="item-inner">
+							<div class="item-title item-floating-label">Клас</div>
+							<div class="item-input-wrap">
+							  <input type="text" required id="klas">
+							  <span class="input-clear-button"></span>
+							</div>
+						  </div>
+						</li>
+						<li class="item-content item-input">
+						  <div class="item-inner">
+							<div class="item-title item-floating-label">Номер сотового</div>
+							<div class="item-input-wrap">
+							  <input type="text"  required id="tel">
+							  <span class="input-clear-button"></span>
+							</div>
+						  </div>
+						</li>
+						  <li>
+							<label class="item-checkbox item-content">
+							<input type="checkbox" id="soglasie" checked value="soglasie">
+							<i class="icon icon-checkbox"></i>
+							<div class="item-inner">
+							<div class="item-title">Согласен на обработку персональных данных</div>
+							</div>
+							</label>
+						  </li>
+
+						  <li class="item-content item-input">
+						  <a href="#" class="tstu-sk-button button button-fill">Регистрация</a>
+						</li>
+					  </ul>
+					</div>
+			  </div>
+			</div>
+    </div>
+  </div>
+</template>
+
+<script> 
+
+  return {
+    data: function () {
+      return {
+        // empty initial user data
+        nnews: null,
+      }
+    },
+    on: {
+      pageInit: function () {
+		  $$('.tstu-sk-button').on('click',function(){ 
+			  
+			  soglasie = document.getElementById('soglasie').checked?1:0;
+			  tel=$$('#tel').val();
+			  family=$$('#family').val();
+			  sname=$$('#sname').val()
+			  otch=$$('#otch').val();
+			  skola=$$('#skola').val();
+			  klas=$$('#klas').val();
+			  if(tel.length==0 || family.length==0 || sname.length==0 || otch.length==0 || skola.length==0 || klas.length==0 || soglasie==0){app.dialog.alert('Введите данные полностью'); return;}
+			  
+			  
+				app.request.post('http://mobile.tstu.ru/skreg', { tel:tel, family:family, sname:sname, otch:otch, skola:skola, klas:klas, soglasie: soglasie }, function () {
+				
+					app.dialog.alert('Поздравляем! Вы зарегистрированы.',function(){;
+					  $$('#family').val('');
+					  $$('#sname').val('')
+					  $$('#otch').val('');
+					  $$('#skola').val('');
+					  $$('#klas').val('');
+					  $$('#tel').val('');})
+				});
+			})
+	  },
+    },
+	pageAfterin: function () {
+		  setTimeout(function(){setActiveTab(3);},10)
+      },  
+  };
+</script>
