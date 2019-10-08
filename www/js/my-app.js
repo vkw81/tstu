@@ -54,6 +54,7 @@ var app = new Framework7({
 	  path: '/nnews/:id/',
 	  componentUrl: './pages/nnews.html',
 	},  
+	
 	//Абитуриентам направления
 	{
 	  path: '/abitur-n/bak/',
@@ -125,6 +126,10 @@ var app = new Framework7({
 	  path: '/sk/',
 	  componentUrl: './pages/sk.html',
 	},
+	{
+	  path: '/nmer/:id/',
+	  componentUrl: './pages/nmer.html',
+	}, 	
 ],
 });
 

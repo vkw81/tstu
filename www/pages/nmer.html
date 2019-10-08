@@ -1,0 +1,198 @@
+<template>
+<!-- Initial Page, "data-name" contains page name -->
+    <div data-name="home" class="page"> 
+      
+      <!-- Top Navbar -->
+      <div class="navbar">
+        <div class="navbar-inner">
+			<div class="left">
+<a href="#" class="link back">
+<i class="icon icon-back"></i>
+<span class="if-not-md">Назад</span>
+</a>
+</div>
+          <div class="title">{{#if nmer}}{{nmer.fname}}{{/if}}</div>
+        </div>
+      </div>
+      
+      <!-- Bottom Toolbar -->
+      <div class="toolbar tabbar-labels toolbar-bottom tstu-toolbar">
+        
+      </div>
+      
+      <!-- Scrollable page content -->
+      <div class="page-content">
+		{{#if nmer}}
+		  <input type="hidden" id="id" value="{{nmer.id}}">
+		<div class="card1 tstu-facebook-card">
+			{{#if nmer.has_img}}
+				<picture>
+					<source srcset="http://mobile.tstu.ru/img/{{nmer.id}}_480.jpg" media="(max-width: 480px)">
+					<source srcset="http://mobile.tstu.ru/img/{{nmer.id}}_640.jpg" media="(max-width: 640px)">
+					<source srcset="http://mobile.tstu.ru/img/{{nmer.id}}_800.jpg" media="(max-width: 800px)">
+					<source srcset="http://mobile.tstu.ru/img/{{nmer.id}}_1080.jpg" media="(max-width: 1080px)">
+					<source srcset="http://mobile.tstu.ru/img/{{nmer.id}}_800.jpg 2x" media="(max-width: 480px)">
+					<source srcset="http://mobile.tstu.ru/img/{{nmer.id}}_1080.jpg 2x" media="(max-width: 800px)">
+					<source srcset="http://mobile.tstu.ru/img/{{nmer.id}}_1080.jpg 3x" media="(max-width: 480px)">
+					<source srcset="http://mobile.tstu.ru/img/{{nmer.id}}_1080.jpg">
+					<img src="http://mobile.tstu.ru/img/{{nmer.id}}_480.jpg">
+				</picture>
+			{{/if}}
+		  <div class="card-header">
+			<a class="tstu-facebook-name">{{nmer.cname}} </a>
+		  </div>
+		  <div class="card-content card-content-padding">
+			<p><strong>{{nmer.anons}}</strong></p>
+			<p>{{nmer.fftext}}</p>
+		  </div>
+		  {{/if}}
+		</div>
+		{{/if}}
+		  <div class="card">
+			  <div class="card-header"><strong>Регистрация на {{#if nmer}}{{nmer.fname}}{{/if}}</strong></div>
+			  <div class="card-content">
+				  <div class="list">
+					  <ul> 
+						  <li class="item-content item-input">
+						  <div class="item-inner">
+							<div class="item-title item-floating-label">Фамилия</div>
+							<div class="item-input-wrap">
+							  <input type="text" autofocus required  id="family" value="">
+							  <span class="input-clear-button"></span>
+							</div>
+						  </div>
+						</li>
+						  <li class="item-content item-input">
+						  <div class="item-inner">
+							<div class="item-title item-floating-label">Имя</div>
+							<div class="item-input-wrap">
+							  <input type="text" required id="sname" value="">
+							  <span class="input-clear-button"></span>
+							</div>
+						  </div>
+						</li>
+						  <li class="item-content item-input">
+						  <div class="item-inner">
+							<div class="item-title item-floating-label">Отчество</div>
+							<div class="item-input-wrap">
+							  <input type="text" required id="otch" value="">
+							  <span class="input-clear-button"></span>
+							</div>
+						  </div>
+						</li>
+						  <li class="item-content item-input">
+						  <div class="item-inner">
+							<div class="item-title item-floating-label">Образовательное учреждение</div>
+							<div class="item-input-wrap">
+							  <input type="text" required id="skola" value="">
+							  <span class="input-clear-button"></span>
+							</div>
+						  </div>
+						</li>
+						  <li class="item-content item-input">
+						  <div class="item-inner">
+							<div class="item-title item-floating-label">Клас</div>
+							<div class="item-input-wrap">
+							  <input type="text" required id="klas" value="">
+							  <span class="input-clear-button"></span>
+							</div>
+						  </div>
+						</li>
+						<li class="item-content item-input">
+						  <div class="item-inner">
+							<div class="item-title item-floating-label">Номер сотового</div>
+							<div class="item-input-wrap">
+							  <input type="tel"  required id="tel" value="">
+							  <span class="input-clear-button"></span>
+							</div>
+						  </div>
+						</li>
+						  <li class="item-content item-input">
+						  <div class="item-inner">
+							<div class="item-title item-floating-label">Email (если есть)</div>
+							<div class="item-input-wrap">
+							  <input type="email"  required id="email" value="">
+							  <span class="input-clear-button"></span>
+							</div>
+						  </div>
+						</li>
+						  <li>
+							<label class="item-checkbox item-content">
+							<input type="checkbox" id="soglasie" checked value="soglasie">
+							<i class="icon icon-checkbox"></i>
+							<div class="item-inner">
+							<div class="item-title">Согласен на обработку персональных данных</div>
+							</div>
+							</label>
+						  </li>
+
+						  <li class="item-content item-input">
+						  <a href="#" class="tstu-sk-button button button-fill" >Регистрация</a>
+						</li>
+					  </ul>
+					</div>
+			  </div>
+			</div>
+      </div>
+  </div>
+</template>
+<script> 
+
+  return {
+    data: function () {
+      return {
+        // empty initial user data
+        nmer: null,
+      }
+    },
+    on: {
+      pageInit: function () {
+        var self = this;
+        var app = self.$app;
+		  id = self.$route.params.id;
+        app.request.getJSON('http://mobile.tstu.ru/prilnmer', {id:id},(data) => {//console.log(data)
+		  $$('.tstu-tab-news').addClass('back');
+          // update component state with new state
+          self.$setState({
+            nmer : data['nmer'][0],
+          });
+			
+			$$('.tstu-sk-button').on('click',function(){
+
+			  soglasie = document.getElementById('soglasie').checked?1:0;
+			  tel=$$('#tel').val();
+			  id=$$('#id').val();
+			  email=$$('#email').val();
+			  family=$$('#family').val();
+			  sname=$$('#sname').val()
+			  otch=$$('#otch').val();
+			  skola=$$('#skola').val();
+			  klas=$$('#klas').val();
+			  if(tel.length==0 || family.length==0 || sname.length==0 || otch.length==0 || skola.length==0 || klas.length==0 || soglasie==0){app.dialog.alert('Введите данные полностью'); return;}
+
+
+				app.request.post('http://mobile.tstu.ru/skreg', { tel:tel, family:family, sname:sname, otch:otch, skola:skola, klas:klas, soglasie: soglasie, id: id,  email:email }, function (data) {
+
+					app.dialog.alert('Поздравляем! Вы зарегистрированы.',function(){;
+					  $$('#family').val('');
+					  $$('#sname').val('')
+					  $$('#otch').val('');
+					  $$('#skola').val('');
+					  $$('#email').val('');
+					  $$('#klas').val('');
+					  $$('#tel').val('');})
+				});
+			})
+			
+			
+			
+        });
+		  
+		  
+		  
+      },
+    }
+	  
+  };
+	
+</script>
